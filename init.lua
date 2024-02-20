@@ -63,3 +63,5 @@ require 'gitsigns'.setup {
 require 'dressing'.setup {
 	input = { enabled = false }
 }
+
+require 'nekovim':setup {}

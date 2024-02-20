@@ -5,7 +5,7 @@ local opts = {
 	hlsearch = true,                        -- highlight all matches on previous search pattern
 	ignorecase = true,                      -- ignore case in search patterns
 	pumheight = 10,                         -- pop up menu height
-	showmode = false,                       -- we don't need to see things like -- INSERT -- anymore
+	showmode = false,                       -- do not show the mode (-- INSERT --) anymore
 	smartcase = true,                       -- smart case
 	smartindent = true,                     -- make indenting smarter again
 	splitbelow = true,                      -- force all horizontal splits to go below current window
@@ -16,13 +16,16 @@ local opts = {
 	shiftwidth = 2,                         -- the number of spaces inserted for each indentation
 	tabstop = 2,                            -- insert 2 spaces for a tab
 	wrap = false,                           -- display lines as one long line
-	scrolloff = 8,                          -- is one of my fav
+	scrolloff = 8,                          -- lines away from the top/bottom to start scrolling
 	sidescrolloff = 8,
 	fillchars = { eob = ' ' },
 	laststatus = 0
 }
 
 function set_opts()
+	vim.g.python_recommended_style = 0
+	vim.g.markdown_recommended_style = 0
+
 	for opt, val in pairs(opts) do
 		vim.opt[opt] = val
 	end
