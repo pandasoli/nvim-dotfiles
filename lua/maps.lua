@@ -26,3 +26,9 @@ keymap('n', '<S-Tab>', '<cmd>tabprevious<CR>', opts)
 
 keymap('n', 'gw', '<cmd>normal gx<CR>', opts)
 keymap('n', 'gf', '<cmd>tabedit <cfile><CR>', opts)
+
+keymap('n', '<F2>', '', {
+	noremap = true,
+	silent = true,
+	callback = require 'scripts.auto-rename-tag'
+})

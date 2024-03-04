@@ -5,7 +5,7 @@ local lsp_servers = {
 	'clangd',
 
 	-- JavaScript
-	'tsserver' -- , 'jsonls', 'eslint'
+	'tsserver', -- 'jsonls', 'eslint'
 }
 
 for _, server in pairs(lsp_servers) do

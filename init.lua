@@ -1,4 +1,4 @@
-require 'user.lazy'.setup {
+require 'plugin.lazy'.setup {
 	{'windwp/nvim-autopairs', event = 'InsertEnter', opts = {}},
 	{'numToStr/Comment.nvim', opts = {}, lazy = false},   -- Easy comment
 	'mg979/vim-visual-multi',   -- multiple cursors
@@ -37,7 +37,10 @@ require 'user.lazy'.setup {
 
 	-- Java
 	'mfussenegger/nvim-jdtls',
-	'onsails/lspkind.nvim'
+	'onsails/lspkind.nvim',
+
+	-- Web dev
+	'maxmellon/vim-jsx-pretty',
 }
 
 vim.cmd [[
@@ -46,12 +49,12 @@ vim.cmd [[
 	hi NonText guibg=none
 ]]
 
-require 'user.options'
-require 'user.keymaps'
-require 'user.cmp'
-require 'user.telescope'
-require 'user.lsp'
-require 'user.tabline'
+require 'options'
+require 'maps'
+require 'plugin.cmp'
+require 'plugin.telescope'
+require 'config.lsp'
+require 'config.tabline'
 
 require 'gitsigns'.setup {
 	signs = {
