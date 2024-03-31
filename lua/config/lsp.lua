@@ -1,8 +1,9 @@
 local lspconfig = require 'lspconfig'
 
 local lsp_servers = {
-	-- C
-	'clangd',
+	'clangd', -- C
+	'lua_ls', -- Lua
+	'gopls',  -- Go
 
 	-- JavaScript
 	'tsserver', -- 'jsonls', 'eslint'

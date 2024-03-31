@@ -5,6 +5,8 @@ require 'plugin.lazy'.setup {
 	'lewis6991/gitsigns.nvim',  -- git status on colsign
 	'pandasoli/nekovim',        -- Discord activity
 
+	'neovim/nvim-lspconfig',
+
 	-- Theming
 	'shaunsingh/nord.nvim',
 	'daschw/leaf.nvim',
@@ -30,8 +32,6 @@ require 'plugin.lazy'.setup {
 	'hrsh7th/cmp-vsnip',
 	'hrsh7th/vim-vsnip',
 
-	'neovim/nvim-lspconfig',	
-
 	-- Markdown
 	'iamcco/markdown-preview.nvim',
 
@@ -40,7 +40,7 @@ require 'plugin.lazy'.setup {
 	'onsails/lspkind.nvim',
 
 	-- Web dev
-	'maxmellon/vim-jsx-pretty',
+	'maxmellon/vim-jsx-pretty'
 }
 
 vim.cmd [[
@@ -67,4 +67,4 @@ require 'dressing'.setup {
 	input = { enabled = false }
 }
 
-require 'nekovim':setup {}
+require 'nekovim'.setup {}
