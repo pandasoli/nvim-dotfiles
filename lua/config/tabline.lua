@@ -30,5 +30,5 @@ vim.opt.tabline = '%!luaeval("CustomizedTabLine()")'
 vim.cmd [[
 	hi TabLineFill guifg=none guibg=none
 	hi TabLine guifg=#2b3042 guibg=none
-	hi TabLineSel gui=none guifg=#a3be8c guibg=#1c1f26
+	hi TabLineSel gui=none guifg=#90b3f4 guibg=#1c1f26
 ]]

@@ -5,10 +5,22 @@ local lsp_servers = {
 	'lua_ls', -- Lua
 	'gopls',  -- Go
 
-	-- JavaScript
-	'tsserver', -- 'jsonls', 'eslint'
+	-- JavaScript -- 'jsonls', 'eslint'
+	tsserver = {
+		root_dir = lspconfig.util.root_pattern('package.json'),
+		single_file_support = false
+	},
+
+	denols = {
+		root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc')
+	}
 }
 
-for _, server in pairs(lsp_servers) do
-	lspconfig[server].setup {}
+for server, config in pairs(lsp_servers) do
+	if type(server) == 'number' then
+		server = config
+		config = {}
+	end
+
+	lspconfig[server].setup(config)
 end

@@ -9,7 +9,7 @@ require 'plugin.lazy'.setup {
 
 	-- Theming
 	'shaunsingh/nord.nvim',
-	'daschw/leaf.nvim',
+	{'daschw/leaf.nvim', commit = 'd7e3506'},
 
 	-- Emoji insertion
 	{
@@ -40,14 +40,15 @@ require 'plugin.lazy'.setup {
 	'onsails/lspkind.nvim',
 
 	-- Web dev
-	'maxmellon/vim-jsx-pretty'
-}
+	'maxmellon/vim-jsx-pretty',
 
-vim.cmd [[
-	colorscheme leaf
-	hi Normal guibg=none
-	hi NonText guibg=none
-]]
+	{
+		'barrett-ruth/live-server.nvim',
+		build = 'pnpm add -g live-server',
+		cmd = { 'LiveServerStart', 'LiveServerStop' },
+		config = true
+	}
+}
 
 require 'options'
 require 'maps'
@@ -55,6 +56,20 @@ require 'plugin.cmp'
 require 'plugin.telescope'
 require 'config.lsp'
 require 'config.tabline'
+
+-- vim.cmd [[
+-- 	colorscheme nord
+-- 	hi Normal guibg=none
+-- 	hi NonText guibg=none
+-- ]]
+
+vim.g.nord_contrast = true
+vim.g.nord_borders = false
+vim.g.nord_disable_background = true
+vim.g.nord_italic = false
+vim.g.nord_uniform_diff_background = true
+vim.g.nord_bold = false
+require 'nord'.set()
 
 require 'gitsigns'.setup {
 	signs = {
@@ -68,3 +83,5 @@ require 'dressing'.setup {
 }
 
 require 'nekovim'.setup {}
+
+require 'live-server'.setup {}

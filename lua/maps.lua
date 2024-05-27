@@ -2,7 +2,7 @@ local opts = { noremap = true, silent = true }
 local helper_opts = { noremap = true }
 
 -- Shorten functions
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 -- Remap space as leader key
 keymap('', '<Space>', '<Nop', opts)
@@ -26,9 +26,3 @@ keymap('n', '<S-Tab>', '<cmd>tabprevious<CR>', opts)
 
 keymap('n', 'gw', '<cmd>normal gx<CR>', opts)
 keymap('n', 'gf', '<cmd>tabedit <cfile><CR>', opts)
-
-keymap('n', '<F2>', '', {
-	noremap = true,
-	silent = true,
-	callback = require 'scripts.auto-rename-tag'
-})
