@@ -71,5 +71,6 @@ return {
 		end
 
 		require 'telescope'.setup(options)
+		require 'icon-picker'.setup { disable_legacy_commands = true }
 	end
 }
