@@ -9,17 +9,16 @@ return {
 			'clangd', -- C
 			'lua_ls', -- Lua
 			'gopls',  -- Go
+			'pyright',
 
-			tsserver = {
+			ts_ls = {
 				root_dir = lsputil.root_pattern('package.json'),
 				single_file_support = false
 			},
 
-			--[[  Conflicting with tsserver
 			denols = {
 				root_dir = lsputil.root_pattern('deno.json', 'deno.jsonc')
 			},
-			]]
 
 			svelte = {
 				-- filetypes = { 'svelte' }, -- Maybe this works better? https://github.com/neovim/neovim/issues/12688
