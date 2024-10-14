@@ -1,13 +1,11 @@
 return {
+	{ enabled = false, 'daschw/leaf.nvim', commit = 'd7e3506' },
 	{
 		enabled = false,
-		'daschw/leaf.nvim', commit = 'd7e3506'
-	},
-
-	{
 		'shaunsingh/nord.nvim',
 
-		config = function()-- vim.cmd [[
+		config = function()
+			-- vim.cmd [[
 			-- 	colorscheme nord
 			-- 	hi Normal guibg=none
 			-- 	hi NonText guibg=none
@@ -20,6 +18,19 @@ return {
 			vim.g.nord_uniform_diff_background = true
 			vim.g.nord_bold = false
 			require 'nord'.set()
+		end
+	},
+
+	{
+		'alligator/accent.vim',
+
+		config = function()
+			vim.cmd [[
+				let g:accent_colour = 'green'
+			 	colorscheme accent
+				hi Normal guibg=none
+			 	hi NonText guibg=none
+			]]
 		end
 	}
 }
