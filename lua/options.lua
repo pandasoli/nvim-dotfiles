@@ -22,7 +22,7 @@ local opts = {
 	laststatus = 0
 }
 
-function set_opts()
+local function set_opts()
 	vim.g.python_recommended_style = 0
 	vim.g.markdown_recommended_style = 0
 
