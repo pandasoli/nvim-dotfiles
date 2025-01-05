@@ -10,6 +10,7 @@ return {
 			'lua_ls', -- Lua
 			'gopls',  -- Go
 			'pyright',
+			'csharp_ls',
 
 			ts_ls = {
 				root_dir = lsputil.root_pattern('package.json'),
