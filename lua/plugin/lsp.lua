@@ -8,15 +8,14 @@ return {
 		local lsp_servers = {
 			'clangd', -- C
 			'lua_ls', -- Lua
-			'gopls',  -- Go
+			-- 'gopls',  -- Go
 			'pyright',
 			'csharp_ls',
 
 			ts_ls = {
-				root_dir = lsputil.root_pattern('package.json'),
-				single_file_support = false
+				single_file_support = false,
+				root_dir = lsputil.root_pattern 'package.json'
 			},
-
 			denols = {
 				root_dir = lsputil.root_pattern('deno.json', 'deno.jsonc')
 			},

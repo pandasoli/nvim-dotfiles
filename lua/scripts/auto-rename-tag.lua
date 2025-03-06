@@ -1,6 +1,5 @@
 return function()
-	newtag = vim.fn.input('Enter new tag name: ')
-
+	local newtag = vim.fn.input('Enter new tag name: ')
 	local return_position = vim.api.nvim_win_get_cursor(0)
 
 	vim.cmd [[execute 'normal T<']]

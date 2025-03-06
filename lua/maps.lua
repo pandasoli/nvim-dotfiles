@@ -19,6 +19,7 @@ vim.g.maplocalleader = ' '
 
 keymap('n', '!', '<cmd>noh<CR>', opts)
 keymap('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+keymap('n', '<leader>\'', '<cmd>%s/"/\'/g')
 
 keymap('n', 'e', ':tabedit<space>', helper_opts)
 keymap('n', '<Tab>', '<cmd>tabnext<CR>', opts)
