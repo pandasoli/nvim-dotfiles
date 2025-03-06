@@ -33,7 +33,7 @@ local function set_opts()
 	vim.opt.shortmess:append 'c'
 
 	vim.cmd 'set whichwrap+=<,>,[,],h,l'
-	vim.cmd 'set mouse='
+	vim.cmd 'set mouse=n'
 	-- vim.cmd [[set iskeyword+=-]]
 end
 
