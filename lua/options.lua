@@ -57,8 +57,8 @@ local function set_opts()
 
 	vim.opt.shortmess:append 'c'
 
-	vim.cmd [[set whichwrap+=<,>,[,],h,l]]
-	vim.cmd [[set mouse=n]]
+	vim.o.whichwrap = vim.o.whichwrap .. '<,>,[,],h,l'
+	vim.o.mouse = 'n'
 	-- vim.cmd [[set iskeyword+=-]]
 
 	set_clipboard('wayclip')
