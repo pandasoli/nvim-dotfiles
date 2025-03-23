@@ -1,3 +1,5 @@
+vim = vim
+
 local opts = {
 	clipboard = 'unnamedplus',              -- allows neovim to access the system clipboard
 	cmdheight = 1,                          -- less space in the neovim command line
@@ -22,37 +24,44 @@ local opts = {
 	laststatus = 0
 }
 
-local function set_opts()
-	vim.g.python_recommended_style = 0
-	vim.g.markdown_recommended_style = 0
+---@param c 'wsl'|'wayclip' -- The clipboard name or environment
+local function set_clipboard(c)
+	if c == 'wsl' then
+		vim.g.clipboard = {
+			name  = 'win_clipboard',
+			copy  = { ['+'] = 'clip.exe',                     ['*'] = 'clip.exe'                     },
+			paste = { ['+'] = 'powershell.exe Get-Clipboard', ['*'] = 'powershell.exe Get-Clipboard' },
+			cache_enabled = 0
+		}
 
+		-- Are these really needed?
+		vim.keymap.set({'n', 'v'}, 'y', '"+y', { noremap = true, silent = true })
+		vim.keymap.set({'n', 'v'}, 'p', '"+p', { noremap = true, silent = true })
+	elseif c == 'wayclip' then
+		vim.g.clipboard = {
+			name  = 'wayclip',
+			copy  = { ['+'] = 'waycopy',  ['*'] = 'waycopy'  },
+			paste = { ['+'] = 'waypaste', ['*'] = 'waypaste' },
+			cache_enabled = 0
+		}
+	end
+end
+
+local function set_opts()
 	for opt, val in pairs(opts) do
 		vim.opt[opt] = val
 	end
 
+	vim.g.python_recommended_style = 0
+	vim.g.markdown_recommended_style = 0
+
 	vim.opt.shortmess:append 'c'
 
-	vim.cmd 'set whichwrap+=<,>,[,],h,l'
-	vim.cmd 'set mouse=n'
+	vim.cmd [[set whichwrap+=<,>,[,],h,l]]
+	vim.cmd [[set mouse=n]]
 	-- vim.cmd [[set iskeyword+=-]]
+
+	set_clipboard('wayclip')
 end
 
 set_opts()
-
--- if vim.fn.has('wsl') then
---   vim.g.clipboard = {
---     name = 'win_clipboard',
---     copy = {
---       ['+'] = 'clip.exe',
---       ['*'] = 'clip.exe'
---     },
---     paste = {
---       ['+'] = 'powershell.exe Get-Clipboard',
---       ['*'] = 'powershell.exe Get-Clipboard'
---     },
---     cache_enabled = 0
---   }
---
---   vim.keymap.set({'n', 'v'}, 'y', '"+y', { noremap = true, silent = true })
---   vim.keymap.set({'n', 'v'}, 'p', '"+p', { noremap = true, silent = true })
--- end
