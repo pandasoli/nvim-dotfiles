@@ -55,13 +55,14 @@ local function set_opts()
 	vim.g.python_recommended_style = 0
 	vim.g.markdown_recommended_style = 0
 
-	vim.opt.shortmess:append 'c'
-
 	vim.o.whichwrap = vim.o.whichwrap .. '<,>,[,],h,l'
 	vim.o.mouse = 'n'
+	vim.opt.shortmess:append 'c'
 	-- vim.cmd [[set iskeyword+=-]]
 
 	set_clipboard('wayclip')
+
+	vim.diagnostic.config({ virtual_text = true })
 end
 
 set_opts()
