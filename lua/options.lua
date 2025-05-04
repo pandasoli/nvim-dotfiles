@@ -1,32 +1,34 @@
 vim = vim
 
 local opts = {
-	clipboard = 'unnamedplus',              -- allows neovim to access the system clipboard
-	cmdheight = 1,                          -- less space in the neovim command line
-	fileencoding = 'utf-8',                 -- the encoding written to a file
-	hlsearch = true,                        -- highlight all matches on previous search pattern
-	ignorecase = true,                      -- ignore case in search patterns
-	pumheight = 10,                         -- pop up menu height
-	showmode = false,                       -- do not show the mode (-- INSERT --) anymore
-	smartcase = true,                       -- smart case
-	smartindent = true,                     -- make indenting smarter again
-	splitbelow = true,                      -- force all horizontal splits to go below current window
-	splitright = true,                      -- force all vertical splits to go to the right of current window
-	timeoutlen = 1000,                      -- time to wait for a mapped sequence to complete (in milliseconds)
-	undofile = true,                        -- enable persistent undo
-	updatetime = 300,                       -- faster completion (4000ms default)
-	shiftwidth = 2,                         -- the number of spaces inserted for each indentation
-	tabstop = 2,                            -- insert 2 spaces for a tab
-	wrap = false,                           -- display lines as one long line
-	scrolloff = 8,                          -- lines away from the top/bottom to start scrolling
+	clipboard = 'unnamedplus',
+	cmdheight = 1,
+	fileencoding = 'utf-8',
+	hlsearch = true,
+	ignorecase = true,
+	pumheight = 10,
+	showmode = false,
+	smartcase = true,
+	smartindent = true,
+	splitbelow = true,
+	splitright = true,
+	timeoutlen = 1000,
+	undofile = true,
+	updatetime = 300,
+	shiftwidth = 2,
+	tabstop = 2,
+	wrap = false,
+	scrolloff = 8,
 	sidescrolloff = 8,
 	fillchars = { eob = ' ' },
-	laststatus = 0
+	laststatus = 0,
+	exrc = true
 }
 
----@param c 'wsl'|'wayclip' -- The clipboard name or environment
-local function set_clipboard(c)
-	if c == 'wsl' then
+local function set_clipboard()
+	local uname = vim.loop.os_uname()
+
+	if uname.sysname:find('Windows') then
 		vim.g.clipboard = {
 			name  = 'win_clipboard',
 			copy  = { ['+'] = 'clip.exe',                     ['*'] = 'clip.exe'                     },
@@ -37,7 +39,7 @@ local function set_clipboard(c)
 		-- Are these really needed?
 		vim.keymap.set({'n', 'v'}, 'y', '"+y', { noremap = true, silent = true })
 		vim.keymap.set({'n', 'v'}, 'p', '"+p', { noremap = true, silent = true })
-	elseif c == 'wayclip' then
+	elseif vim.fn.executable('waycopy') == 0 then
 		vim.g.clipboard = {
 			name  = 'wayclip',
 			copy  = { ['+'] = 'waycopy',  ['*'] = 'waycopy'  },
@@ -53,14 +55,14 @@ local function set_opts()
 	end
 
 	vim.g.python_recommended_style = 0
+	vim.g.rust_recommended_style = 0
 	vim.g.markdown_recommended_style = 0
 
 	vim.o.whichwrap = vim.o.whichwrap .. '<,>,[,],h,l'
 	vim.o.mouse = 'n'
 	vim.opt.shortmess:append 'c'
-	-- vim.cmd [[set iskeyword+=-]]
 
-	set_clipboard('wayclip')
+	set_clipboard()
 
 	vim.diagnostic.config({ virtual_text = true })
 end

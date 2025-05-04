@@ -23,6 +23,7 @@ require 'plugin.lazy'.setup {
 	{ import = 'plugin.cmp' },
 	{ import = 'plugin.icon-picker' },
 	{ import = 'plugin.lint' },
+	{ import = 'plugin.normal-cmdline' },
 
 	{ import = 'plugin.core' },
 	{ import = 'plugin.theme' },

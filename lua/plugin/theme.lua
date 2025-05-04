@@ -26,7 +26,7 @@ return {
 
 		config = function()
 			vim.cmd [[
-				let g:accent_colour = 'green'
+				let g:accent_colour = 'blue'
 			 	colorscheme accent
 				hi Normal guibg=none
 			 	hi NonText guibg=none
