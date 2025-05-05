@@ -39,7 +39,7 @@ local function set_clipboard()
 		-- Are these really needed?
 		vim.keymap.set({'n', 'v'}, 'y', '"+y', { noremap = true, silent = true })
 		vim.keymap.set({'n', 'v'}, 'p', '"+p', { noremap = true, silent = true })
-	elseif vim.fn.executable('waycopy') == 0 then
+	elseif vim.fn.executable('waycopy') == 1 then
 		vim.g.clipboard = {
 			name  = 'wayclip',
 			copy  = { ['+'] = 'waycopy',  ['*'] = 'waycopy'  },
