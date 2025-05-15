@@ -1,5 +1,5 @@
 return {
-	'lewis6991/gitsigns.nvim',  -- git status on colsign
+	'lewis6991/gitsigns.nvim',
 	opts = {
 		signs = {
 			add = { text = '▏' },

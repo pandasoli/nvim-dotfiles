@@ -27,7 +27,7 @@ return {
 				{
 					icon = '󰻭 ',
 					icon_hl = 'Title',
-					desc = align('New File'),
+					desc = align('New file'),
 					desc_hl = 'String',
 					key = 'n',
 					keymap = '',
@@ -49,7 +49,7 @@ return {
 				{
 					icon = ' ',
 					icon_hl = 'Title',
-					desc = align('Recent Files'),
+					desc = align('Recent files'),
 					desc_hl = 'String',
 					key = 'r',
 					keymap = '',

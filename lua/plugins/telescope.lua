@@ -1,17 +1,9 @@
+-- Dependency of icon-picker
+
 return {
-	'ziontee113/icon-picker.nvim',
-	opts = { disable_legacy_commands = true },
-	dependencies = {
-		'nvim-lua/plenary.nvim',
-		'nvim-telescope/telescope.nvim',
-		'stevearc/dressing.nvim'
-	},
+	'nvim-telescope/telescope.nvim',
 
 	config = function()
-		require 'dressing'.setup {
-			input = { enabled = false }
-		}
-
 		local options = {
 			active = true,
 			on_config_done = nil,
@@ -71,6 +63,5 @@ return {
 		end
 
 		require 'telescope'.setup(options)
-		require 'icon-picker'.setup { disable_legacy_commands = true }
 	end
 }

@@ -3,9 +3,9 @@ return {
 	event = 'CmdlineEnter',
 
 	config = function()
-		vim.opt.guicursor:append('ci:ver1,c:ver1')
+		vim.opt.guicursor:append 'ci:ver1,c:ver1'
 
-		local cmd = require('normal-cmdline')
+		local cmd = require 'normal-cmdline'
 
 		cmd.setup {
 			key = '<esc>',

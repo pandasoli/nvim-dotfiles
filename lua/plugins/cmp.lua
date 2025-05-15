@@ -77,7 +77,7 @@ return {
 				},
 				snippet = {
 					expand = function(args)
-						vim.fn["vsnip#anonymous"](args.body) -- because we are using the vsnip cmp plugin
+						vim.fn['vsnip#anonymous'](args.body) -- because we are using the vsnip cmp plugin
 					end
 				},
 				confirm_opts = {

@@ -5,10 +5,10 @@ return {
 		local lspconfig = require 'lspconfig'
 		local lsputil = require 'lspconfig.util'
 
-		local lsp_servers = {
+		local servers = {
 			'clangd', -- C
 			'lua_ls', -- Lua
-			-- 'gopls',  -- Go
+			'gopls',  -- Go
 			'pyright',
 			'csharp_ls',
 
@@ -21,7 +21,6 @@ return {
 			},
 
 			svelte = {
-				-- filetypes = { 'svelte' }, -- Maybe this works better? https://github.com/neovim/neovim/issues/12688
 				default_config = {
 					cmd = { 'svelteserver', '--stdio' },
 					filetypes = { 'svelte' },
@@ -35,9 +34,8 @@ return {
 			}
 		}
 
-		for server, config in pairs(lsp_servers) do
-			if type(server) == 'number'
-			and type(config) == 'string' then
+		for server, config in pairs(servers) do
+			if type(server) == 'number' and type(config) == 'string' then
 				server = config
 				config = {}
 			end

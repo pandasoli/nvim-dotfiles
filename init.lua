@@ -1,40 +1,27 @@
 require 'options'
 require 'maps'
 require 'config.tabline'
+require 'config.cursor'
 
--- Script at /usr/share/nvim/runtime/syntax/algol68.vim
-vim.cmd [[
-	au BufNewFile,BufRead *.a68 setf algol68
-]]
+require 'plugins.lazy'.setup {
+	{ import = 'plugins.cmp' },
+	{ import = 'plugins.icon-picker' },
+	-- { import = 'plugins.lint' }, -- Is this really necessary?
+	{ import = 'plugins.normal-cmdline' },
+	{ import = 'plugins.welcome' },
 
--- Remember cursor position
-vim.api.nvim_create_autocmd('BufReadPost', {
-	pattern = '*',
-	callback = function()
-		local pos = vim.fn.line("'\"")
+	{ import = 'plugins.core' },
+	{ import = 'plugins.theme' },
+	{ import = 'plugins.lsp' },
+	{ import = 'plugins.gitsigns' },
+	-- { import = 'plugins.nekovim' },
+	-- { import = 'plugins.dap' }, -- Is this really necessary?
 
-		if pos > 1 and pos <= vim.fn.line('$') then
-			vim.cmd('normal! g`"')
-		end
-	end
-})
-
-require 'plugin.lazy'.setup {
-	{ import = 'plugin.cmp' },
-	{ import = 'plugin.icon-picker' },
-	{ import = 'plugin.lint' },
-	{ import = 'plugin.normal-cmdline' },
-	{ import = 'plugin.welcome' },
-
-	{ import = 'plugin.core' },
-	{ import = 'plugin.theme' },
-	{ import = 'plugin.lsp' },
-	{ import = 'plugin.gitsigns' },
-	-- { import = 'plugin.nekovim' },
-	{ import = 'plugin.dap' },
-
-	{ import = 'plugin.langs.md' },
-	-- { import = 'plugin.langs.java' },
-	{ import = 'plugin.langs.webdev' },
-	-- { import = 'plugin.langs.haskell' }
+	-- { import = 'plugins.langs.md' },
+	-- { import = 'plugins.langs.java' },
+	-- { import = 'plugins.langs.html' },
+	-- { import = 'plugins.langs.jsx' },
+	-- { import = 'plugins.langs.haskell' },
+	{ import = 'plugins.langs.svelte' },
+	{ import = 'plugins.langs.algol68' }
 }
