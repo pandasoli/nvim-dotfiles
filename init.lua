@@ -4,18 +4,15 @@ require 'config.tabline'
 require 'config.cursor'
 
 require 'plugins.lazy'.setup {
-	{ import = 'plugins.cmp' },
-	{ import = 'plugins.icon-picker' },
-	-- { import = 'plugins.lint' }, -- Is this really necessary?
-	{ import = 'plugins.normal-cmdline' },
-	{ import = 'plugins.welcome' },
-
 	{ import = 'plugins.core' },
-	{ import = 'plugins.theme' },
-	{ import = 'plugins.lsp' },
+	{ import = 'plugins.cmp' },
 	{ import = 'plugins.gitsigns' },
+	{ import = 'plugins.lsp' },
+	{ import = 'plugins.welcome' },
+	{ import = 'plugins.theme' },
+	{ import = 'plugins.normal-cmdline' },
+	{ import = 'plugins.icon-picker' },
 	-- { import = 'plugins.nekovim' },
-	-- { import = 'plugins.dap' }, -- Is this really necessary?
 
 	-- { import = 'plugins.langs.md' },
 	-- { import = 'plugins.langs.java' },
