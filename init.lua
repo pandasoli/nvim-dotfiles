@@ -12,6 +12,7 @@ require 'plugins.lazy'.setup {
 	{ import = 'plugins.theme' },
 	{ import = 'plugins.normal-cmdline' },
 	{ import = 'plugins.icon-picker' },
+	{ import = 'plugins.hardtime' },
 	-- { import = 'plugins.nekovim' },
 
 	-- { import = 'plugins.langs.md' },

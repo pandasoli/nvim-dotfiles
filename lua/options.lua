@@ -22,7 +22,8 @@ local opts = {
 	sidescrolloff = 8,
 	fillchars = { eob = ' ' },
 	laststatus = 0,
-	exrc = true
+	exrc = true,
+	relativenumber = true
 }
 
 local function set_clipboard()
@@ -39,7 +40,7 @@ local function set_clipboard()
 		-- Are these really needed?
 		vim.keymap.set({'n', 'v'}, 'y', '"+y', { noremap = true, silent = true })
 		vim.keymap.set({'n', 'v'}, 'p', '"+p', { noremap = true, silent = true })
-	elseif vim.fn.executable('waycopy') == 1 then
+	elseif vim.fn.executable('waycopy') then
 		vim.g.clipboard = {
 			name  = 'wayclip',
 			copy  = { ['+'] = 'waycopy',  ['*'] = 'waycopy'  },
