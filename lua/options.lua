@@ -3,6 +3,7 @@ vim = vim
 local opts = {
 	clipboard = 'unnamedplus',
 	cmdheight = 1,
+	laststatus = 0,
 	fileencoding = 'utf-8',
 	hlsearch = true,
 	ignorecase = true,
@@ -21,9 +22,12 @@ local opts = {
 	scrolloff = 8,
 	sidescrolloff = 8,
 	fillchars = { eob = ' ' },
-	laststatus = 0,
 	exrc = true,
-	relativenumber = true
+  cursorline = true,
+
+	relativenumber = true,
+  numberwidth = 6,
+  statuscolumn = [[ %s%l %=%T ]] -- Middle relativenumber
 }
 
 local function set_clipboard()

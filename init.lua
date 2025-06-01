@@ -1,6 +1,5 @@
 require 'options'
 require 'maps'
-require 'config.tabline'
 require 'config.cursor'
 
 require 'plugins.lazy'.setup {
@@ -23,3 +22,5 @@ require 'plugins.lazy'.setup {
 	{ import = 'plugins.langs.svelte' },
 	{ import = 'plugins.langs.algol68' }
 }
+
+require 'config.tabline'
